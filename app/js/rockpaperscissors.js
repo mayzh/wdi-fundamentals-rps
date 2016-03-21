@@ -64,23 +64,33 @@ function playToX(x) {
     var computerWins = 0;
 
     while (playerWins<x && computerWins<x) {
-        var winner = getWinner(getPlayerMove(),getComputerMove());
+        var playerMove = getPlayerMove();
+        var computerMove = getComputerMove();
+        var winner = getWinner(playerMove,computerMove);
     if (winner === 'player') {
             playerWins += 1;
-            console.log('Player chose ' + getPlayerMove() + ' while Computer chose ' + getComputerMove());
+            console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
             console.log('The current score is Player - ' + playerWins + ' Computer - ' + computerWins);
         } else if (winner === 'computer') {
             computerWins += 1;
             
-            console.log('Player chose ' + getPlayerMove() + ' while Computer chose ' + getComputerMove());
+            console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
             console.log('The current score is Player - ' + playerWins + ' Computer - ' + computerWins);
         } else {
             console.log('Tie!');
-            console.log('Player chose ' + getPlayerMove() + ' while Computer chose ' + getComputerMove());
+            console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
             console.log('The current score is Player - ' + playerWins + ' Computer - ' + computerWins);
         }
     }
 
+        
+
+    if (playerWins>computerWins) {
+        console.log("You won!!");
+    }
+    else {
+        console.log("You lost...");
+    }
     return [playerWins, computerWins];
 }
 
