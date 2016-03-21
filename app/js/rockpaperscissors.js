@@ -5,7 +5,7 @@
 
 function getInput() {
     console.log("Please choose either 'rock', 'paper', or 'scissors'.")
-    return prompt();
+    return prompt("Please choose either rock, paper, or scissors.");
 }
 function randomPlay() {
     var randomNumber = Math.random();
@@ -26,7 +26,7 @@ function getPlayerMove(move) {
 }
 
 function getComputerMove(move) {
-    return move || randomPlay;
+    return move || randomPlay();
 }
 
 function getWinner(playerMove,computerMove) {
@@ -58,12 +58,30 @@ function getWinner(playerMove,computerMove) {
     return winner;
 }
 
-function playToFive() {
+function playToX(x) {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
 
-    fo
+    while (playerWins<x && computerWins<x) {
+        var winner = getWinner(getPlayerMove(),getComputerMove());
+    if (winner === 'player') {
+            playerWins += 1;
+            console.log('Player chose ' + getPlayerMove() + ' while Computer chose ' + getComputerMove());
+            console.log('The current score is Player - ' + playerWins + ' Computer - ' + computerWins);
+        } else if (winner === 'computer') {
+            computerWins += 1;
+            
+            console.log('Player chose ' + getPlayerMove() + ' while Computer chose ' + getComputerMove());
+            console.log('The current score is Player - ' + playerWins + ' Computer - ' + computerWins);
+        } else {
+            console.log('Tie!');
+            console.log('Player chose ' + getPlayerMove() + ' while Computer chose ' + getComputerMove());
+            console.log('The current score is Player - ' + playerWins + ' Computer - ' + computerWins);
+        }
+    }
+
     return [playerWins, computerWins];
 }
+
 
